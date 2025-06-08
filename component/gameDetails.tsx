@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
@@ -11,6 +11,7 @@ export default function GameDetails(props: { game: any, similar: any, guess: any
     const gameData = props.game;
     const similarData = props.similar;
     const guessData = props.guess;
+    const [reviewStar, setReviewStarr] = useState(4);
     useEffect(() => {
         (window as any).googletag = (window as any).googletag || { cmd: [] };
         const googletag = (window as any).googletag;
@@ -230,17 +231,16 @@ export default function GameDetails(props: { game: any, similar: any, guess: any
                 <SwiperSlide className='w-auto!'><img src={`/banner/${gameData.title}_6.png`} alt="" className="h-[300px] rounded-xl" onError={(e) => { e.currentTarget.src = '/banner/lazy.png'; }} /></SwiperSlide>
                 <SwiperSlide className='w-auto!'><img src={`/banner/${gameData.title}_7.png`} alt="" className="h-[300px] rounded-xl" onError={(e) => { e.currentTarget.src = '/banner/lazy.png'; }} /></SwiperSlide>
             </Swiper>
-            <div className="flex flex-col bg-gray-50 rounded-md gap-3 w-full mt-5 p-4">
+            <div className="flex flex-col gap-3 w-full mt-5 p-4">
                 <div className="text-black font-semibold text-lg">Guess You Like</div>
                 <div className="py-4 grid grid-cols-2 md:grid-cols-6 gap-5">
                 {
                     guessData.map((game: any, index: number)=>{
                         return(	
-                            <a key={index} href={`/game/${game.title}`} className="rounded-xl overflow-hidden hover:scale-115 hover:border-4 hover:border-blue-400 duration-300 ease-in-out">
-                                <div className="rounded-xl">
-                                    <img src={`/${game.title}_icon.png`} className="rounded-xl" />
-                                </div>
-                                <span className="hidden">{game.title}</span>
+                            <a key={index} href={`/game/${game.title}`} className="rounded-xl overflow-hidden flex flex-col items-center bg-gray-100 duration-300 ease-in-out p-5 group hover:bg-sky-100">
+                                <img src={`/${game.title}_icon.png`} className="rounded-xl h-[70px] w-[70px]" />
+                                <div className="overflow-hidden text-ellipsis text-black font-semibold text-center whitespace-nowrap w-full py-4 group-hover:text-sky-500">{game.title}</div>
+                                <button className='px-8 py-2 bg-white border-2 border-sky-200 font-semibold text-sky-400 rounded-full text-sm group-hover:bg-linear-to-b group-hover:from-sky-300/50 group-hover:to-sky-400 group-hover:text-white'>View</button>
                             </a>
                         );
                     })
@@ -248,6 +248,53 @@ export default function GameDetails(props: { game: any, similar: any, guess: any
                 </div>
             </div>
             <div id="div-gpt-ad-123456789-3" style={{ minWidth: '250px', minHeight: '250px', width: 'fit-content', display: 'flex', justifyContent: 'center' }} />
+            <div className="flex flex-col bg-gray-50 rounded-md gap-3 w-full mt-5 p-4">
+                <div className="text-black font-semibold text-lg">Reviews</div>
+                <div className="flex flex-col items-center bg-white rounded-md gap-3 w-full p-4">
+                    <div className="font-semibold text-black text-lg">Please Rate This Game</div>
+                    <div className="flex gap-3">
+                        <span className={`h-[35px] w-[35px] rounded-full cursor-pointer hover:scale-115 duration-300 ease-in-out ${reviewStar >= 1 ? 'bg-sky-300' : 'bg-gray-200'}`} onClick={() => setReviewStarr(1)}></span>
+                        <span className={`h-[35px] w-[35px] rounded-full cursor-pointer hover:scale-115 duration-300 ease-in-out ${reviewStar >= 2 ? 'bg-sky-300' : 'bg-gray-200'}`} onClick={() => setReviewStarr(2)}></span>
+                        <span className={`h-[35px] w-[35px] rounded-full cursor-pointer hover:scale-115 duration-300 ease-in-out ${reviewStar >= 3 ? 'bg-sky-300' : 'bg-gray-200'}`} onClick={() => setReviewStarr(3)}></span>
+                        <span className={`h-[35px] w-[35px] rounded-full cursor-pointer hover:scale-115 duration-300 ease-in-out ${reviewStar >= 4 ? 'bg-sky-300' : 'bg-gray-200'}`} onClick={() => setReviewStarr(4)}></span>
+                        <span className={`h-[35px] w-[35px] rounded-full cursor-pointer hover:scale-115 duration-300 ease-in-out ${reviewStar >= 5 ? 'bg-sky-300' : 'bg-gray-200'}`} onClick={() => setReviewStarr(5)}></span>
+                    </div>
+                    <textarea placeholder="What do you think of this game?" rows={4} className="w-full px-4 py-3 bg-gray-50 rounded-lg"/>
+                    <input type="text" placeholder="Enter your name" className="w-full px-4 py-3 bg-gray-50 rounded-lg" />
+                    <button className='w-full py-2 border-2 border-sky-200 font-semibold text-white rounded-lg text-sm bg-linear-to-b from-sky-300/50 to-sky-400'>Submit</button>
+                </div>
+                <div className="flex flex-col w-full gap-2">
+                    <div className="flex flex-col gap-2">
+                        <span className="text-black font-bold text-sm">Aouie Basilan</span>
+                        <div className="flex gap-3 items-center">
+                            <div className="flex gap-1">
+                                <span className={`h-[15px] w-[15px] rounded-full cursor-pointer hover:scale-115 duration-300 ease-in-out bg-sky-300`}></span>
+                                <span className={`h-[15px] w-[15px] rounded-full cursor-pointer hover:scale-115 duration-300 ease-in-out bg-sky-300`}></span>
+                                <span className={`h-[15px] w-[15px] rounded-full cursor-pointer hover:scale-115 duration-300 ease-in-out bg-sky-300`}></span>
+                                <span className={`h-[15px] w-[15px] rounded-full cursor-pointer hover:scale-115 duration-300 ease-in-out bg-sky-300`}></span>
+                                <span className={`h-[15px] w-[15px] rounded-full cursor-pointer hover:scale-115 duration-300 ease-in-out bg-sky-300`}></span>
+                            </div>
+                            <span className="text-sm text-gray-400">07 November, 2023</span>
+                        </div>
+                        <div className="text-sm">CSR 2 excels in realistic drag racing! Engaging races, authentic cars, and thrilling gameplay. A visually striking and entertaining experience that sets the standard for virtual drag racing.</div>
+                    </div>
+                    <hr className="my-3 border-gray-400" />
+                    <div className="flex flex-col gap-2">
+                        <span className="text-black font-bold text-sm">Asthetıc Flowers</span>
+                        <div className="flex gap-3 items-center">
+                            <div className="flex gap-1">
+                                <span className={`h-[15px] w-[15px] rounded-full cursor-pointer hover:scale-115 duration-300 ease-in-out bg-sky-300`}></span>
+                                <span className={`h-[15px] w-[15px] rounded-full cursor-pointer hover:scale-115 duration-300 ease-in-out bg-sky-300`}></span>
+                                <span className={`h-[15px] w-[15px] rounded-full cursor-pointer hover:scale-115 duration-300 ease-in-out bg-sky-300`}></span>
+                                <span className={`h-[15px] w-[15px] rounded-full cursor-pointer hover:scale-115 duration-300 ease-in-out bg-sky-300`}></span>
+                                <span className={`h-[15px] w-[15px] rounded-full cursor-pointer hover:scale-115 duration-300 ease-in-out bg-sky-300`}></span>
+                            </div>
+                            <span className="text-sm text-gray-400">24 March, 2024</span>
+                        </div>
+                        <div className="text-sm">CSR 2 Realistic Drag Racing is a dragster's dream! Stunning graphics, realistic cars, and intense races. A perfect blend of speed and realism that captivates racing enthusiasts.</div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
