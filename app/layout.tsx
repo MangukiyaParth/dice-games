@@ -17,6 +17,22 @@ export default function RootLayout({
       <head>
         <Script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js" crossOrigin="anonymous" strategy="beforeInteractive"></Script>
         <Script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" strategy="beforeInteractive"></Script>
+        <Script 
+          strategy="beforeInteractive" 
+          src={`https://www.googletagmanager.com/gtag/js?id=AW-17117842905`}
+        />
+        <Script
+          id="gtag-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-17117842905');
+            `,
+          }}
+        />
       </head>
       <body
         className={`${montserrat.variable} antialiased flex justify-center flex-col`}
