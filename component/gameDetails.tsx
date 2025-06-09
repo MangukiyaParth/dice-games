@@ -129,7 +129,7 @@ export default function GameDetails(props: { game: any, similar: any, guess: any
                     </div>
                 </div>
             </div>
-            <div id="div-gpt-ad-123456789-1" style={{ minWidth: '250px', minHeight: '250px', width: 'fit-content', display: 'flex', justifyContent: 'center' }} />
+            <div className="flex justify-center"><div id="div-gpt-ad-123456789-1" style={{ minWidth: '250px', minHeight: '250px', width: 'fit-content', display: 'flex', justifyContent: 'center' }} /></div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-3 gap-3">
                 <div className="flex gap-2 items-center bg-gray-100 py-2 px-4 rounded-md">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-calendar w-5 h-5" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>
@@ -209,7 +209,7 @@ export default function GameDetails(props: { game: any, similar: any, guess: any
                 }
                 </div>
             </div>
-            <div id="div-gpt-ad-123456789-2" style={{ minWidth: '250px', minHeight: '250px', width: 'fit-content', display: 'flex', justifyContent: 'center' }} />
+            <div className="flex justify-center"><div id="div-gpt-ad-123456789-2" style={{ minWidth: '250px', minHeight: '250px', width: 'fit-content', display: 'flex', justifyContent: 'center' }} /></div>
             <div className="flex flex-col bg-gray-50 rounded-md gap-3 w-full mt-5 p-4">
                 <div className="text-black font-semibold text-lg">DESCRIPTION</div>
                 <div className="max-h-[500px] overflow-auto" dangerouslySetInnerHTML={{ __html: gameData.description }}></div>
@@ -247,7 +247,7 @@ export default function GameDetails(props: { game: any, similar: any, guess: any
                 }
                 </div>
             </div>
-            <div id="div-gpt-ad-123456789-3" style={{ minWidth: '250px', minHeight: '250px', width: 'fit-content', display: 'flex', justifyContent: 'center' }} />
+            <div className="flex justify-center"><div id="div-gpt-ad-123456789-3" style={{ minWidth: '250px', minHeight: '250px', width: 'fit-content', display: 'flex', justifyContent: 'center' }} /></div>
             <div className="flex flex-col bg-gray-50 rounded-md gap-3 w-full mt-5 p-4">
                 <div className="text-black font-semibold text-lg">Reviews</div>
                 <div className="flex flex-col items-center bg-white rounded-md gap-3 w-full p-4">
@@ -280,7 +280,7 @@ export default function GameDetails(props: { game: any, similar: any, guess: any
                     </div>
                     <hr className="my-3 border-gray-400" />
                     <div className="flex flex-col gap-2">
-                        <span className="text-black font-bold text-sm">Asthetıc Flowers</span>
+                        <span className="text-black font-bold text-sm">Asthetic Flowers</span>
                         <div className="flex gap-3 items-center">
                             <div className="flex gap-1">
                                 <span className={`h-[15px] w-[15px] rounded-full cursor-pointer hover:scale-115 duration-300 ease-in-out bg-sky-300`}></span>

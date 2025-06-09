@@ -112,6 +112,17 @@ export default function Home() {
 	}
 	return (
 		<div className="flex flex-col w-full h-full min-h-screen mb-5">
+			<div 
+				className="col-span-3 md:col-span-6" // Spans all columns on md+ screens
+				id={`div-gpt-ad-123456789-1`}
+				style={{ 
+					minWidth: '250px',
+					minHeight: '250px',
+					gridColumn: '1 / -1', // Forces full width
+					display: 'grid',
+					justifyContent: 'center'
+				}}
+			/>
 			<div className="p-4 grid grid-cols-3 md:grid-cols-6 gap-5">
 				{
 					data.flatMap((game, index)=>{
@@ -137,17 +148,17 @@ export default function Home() {
 						// Add ad after every 9 items (positions 8, 17, 26, etc.)
 						if ((index + 1) % 9 === 0) {
 							const adNumber = Math.floor((index + 1) / 9);
-							if(adNumber < 5){
+							if(adNumber < 4){
 								items.push(
 									<div 
 									key={`ad-${index}`}
 									className="col-span-3 md:col-span-6" // Spans all columns on md+ screens
-									id={`div-gpt-ad-123456789-${adNumber}`}
+									id={`div-gpt-ad-123456789-${adNumber+1}`}
 									style={{ 
 										minWidth: '250px',
 										minHeight: '250px',
 										gridColumn: '1 / -1', // Forces full width
-										display: 'flex',
+										display: 'grid',
 										justifyContent: 'center'
 									}}
 									/>
